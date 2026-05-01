@@ -2,8 +2,8 @@ backend:
   name: github
   repo: amarcin/monarch-events
   branch: main
-  base_url: https://api.netlify.com
-  auth_endpoint: auth
+  base_url: https://monarchdining.com
+  auth_endpoint: api/auth
 
 site_url: https://monarchdining.com
 display_url: https://monarchdining.com
