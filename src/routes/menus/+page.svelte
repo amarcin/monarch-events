@@ -1,22 +1,19 @@
 <script lang="ts">
 	import Botanical from '$lib/Botanical.svelte';
+	import { menus, site } from '$lib/content';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
 </script>
 
 <svelte:head>
-	<title>Menus — Monarch Events</title>
+	<title>Menus — {site.business_name}</title>
 </svelte:head>
 
 <section class="mx-auto max-w-3xl text-center">
-	<h2 class="font-serif text-5xl">Our Menus</h2>
+	<h2 class="font-serif text-5xl">{menus.heading}</h2>
 	<Botanical class="text-terracotta/40 mx-auto mt-4 h-16 w-56" variant="branch" />
-	<p class="text-ink/80 mt-8 text-base leading-relaxed">
-		Four seasonal menus, rewritten each week to follow what's peaking. These are reference
-		points — your actual menu is written around your party and confirmed one week before
-		service. All prices per guest, food only. Wine and gratuity not included.
-	</p>
+	<p class="text-ink/80 mt-8 text-base leading-relaxed">{menus.intro}</p>
 </section>
 
 <div class="mx-auto mt-20 max-w-3xl space-y-20">
@@ -41,16 +38,15 @@
 </div>
 
 <section class="mt-24 text-center">
-	<h3 class="font-serif text-3xl">Need something different?</h3>
+	<h3 class="font-serif text-3xl">{menus.closing_heading}</h3>
 	<p class="text-ink/75 mx-auto mt-4 max-w-xl text-sm leading-relaxed">
-		Vegetarian, pescatarian, kosher-style, gluten-free — we handle all of it, and we don't
-		charge for the adaptation. Tell us what your guests need; we'll design around it.
+		{menus.closing_body}
 	</p>
 	<a
 		href="/contact"
 		class="border-terracotta text-terracotta hover:bg-terracotta mt-8 inline-block rounded-sm border px-10 py-3 text-sm tracking-[0.25em] uppercase no-underline transition hover:text-white"
 	>
-		ask us anything
+		{menus.closing_cta_label}
 	</a>
 </section>
 

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Botanical from '$lib/Botanical.svelte';
+	import { events, site } from '$lib/content';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
@@ -16,17 +17,13 @@
 </script>
 
 <svelte:head>
-	<title>Upcoming Events — Monarch Events</title>
+	<title>Upcoming Events — {site.business_name}</title>
 </svelte:head>
 
 <section class="mx-auto max-w-3xl text-center">
-	<h2 class="font-serif text-5xl">Upcoming Events</h2>
+	<h2 class="font-serif text-5xl">{events.heading}</h2>
 	<Botanical class="text-terracotta/40 mx-auto mt-4 h-16 w-56" variant="branch" />
-	<p class="text-ink/80 mt-8 text-base leading-relaxed">
-		A handful of public dinners, supper clubs, and workshops we host throughout the year.
-		Seats are first-come, first-served. Reply with the event name and how many seats you'd
-		like to reserve.
-	</p>
+	<p class="text-ink/80 mt-8 text-base leading-relaxed">{events.intro}</p>
 </section>
 
 <div class="mx-auto mt-16 max-w-3xl space-y-8">
@@ -73,7 +70,7 @@
 				</p>
 				{#if event.seats_remaining > 0}
 					<a
-						href="mailto:monarchevents@gmailgroups.com?subject=Reservation: {event.title}"
+						href="mailto:{site.contact_email}?subject=Reservation: {event.title}"
 						class="border-terracotta text-terracotta hover:bg-terracotta rounded-sm border px-6 py-2 text-xs tracking-[0.2em] uppercase no-underline transition hover:text-white"
 					>
 						reserve
@@ -86,12 +83,12 @@
 
 <section class="mt-24 text-center">
 	<p class="text-ink/70 mx-auto max-w-2xl text-sm leading-relaxed italic">
-		Prefer to host privately instead? Any of these menus can be booked for your own group.
+		{events.closing_note}
 	</p>
 	<a
 		href="/contact"
 		class="text-terracotta mt-4 inline-block text-sm tracking-[0.2em] uppercase no-underline"
 	>
-		book privately →
+		{events.closing_cta_label}
 	</a>
 </section>

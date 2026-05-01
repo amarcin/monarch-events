@@ -13,6 +13,143 @@ media_folder: static/uploads
 public_folder: /uploads
 
 collections:
+  - name: site
+    label: Site Settings
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: site
+        label: Site Settings
+        file: content/settings/site.md
+        format: frontmatter
+        fields:
+          - { label: Business name, name: business_name, widget: string }
+          - {
+              label: Tagline (below the logo),
+              name: tagline,
+              widget: string,
+              hint: 'Appears in uppercase under the title on every page.'
+            }
+          - {
+              label: Footer tagline,
+              name: footer_tagline,
+              widget: string,
+              hint: 'Short line shown in the footer under the business name.'
+            }
+          - {
+              label: Contact email,
+              name: contact_email,
+              widget: string,
+              hint: 'Used for footer, contact page, and event reservation links.'
+            }
+          - { label: Location, name: location, widget: string, hint: 'e.g. Dallas, Texas' }
+
+  - name: pages
+    label: Pages
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: home
+        label: Home Page
+        file: content/pages/home.md
+        format: frontmatter
+        fields:
+          - { label: Hero headline, name: hero_headline, widget: string }
+          - { label: Hero description, name: hero_description, widget: text }
+          - { label: Primary button label, name: primary_cta_label, widget: string }
+          - { label: Secondary button label, name: secondary_cta_label, widget: string }
+          - label: Three pillars (the boxes under the hero)
+            name: pillars
+            widget: list
+            min: 1
+            max: 3
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Body, name: body, widget: text }
+          - { label: 'Timeline heading (e.g. "What a Monarch dinner looks like")', name: timeline_heading, widget: string }
+          - label: Timeline steps
+            name: timeline
+            widget: list
+            fields:
+              - { label: Phase, name: phase, widget: string }
+              - { label: Body, name: body, widget: text }
+          - { label: 'Testimonial heading (e.g. "A few kind words")', name: testimonial_heading, widget: string }
+          - { label: Testimonial quote, name: testimonial_quote, widget: text }
+          - { label: 'Testimonial attribution (e.g. "Margaret H., Highland Park")', name: testimonial_attribution, widget: string }
+          - { label: Closing heading, name: closing_heading, widget: string }
+          - { label: Closing body, name: closing_body, widget: text }
+          - { label: Closing button label, name: closing_cta_label, widget: string }
+
+      - name: about
+        label: About Page
+        file: content/pages/about.md
+        format: frontmatter
+        fields:
+          - { label: Page heading, name: heading, widget: string }
+          - { label: Intro paragraph, name: intro, widget: text }
+          - label: Chef bios
+            name: chefs
+            widget: list
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: 'Role (e.g. "Chef · Savory")', name: role, widget: string }
+              - label: Bio paragraphs
+                name: bio_paragraphs
+                widget: list
+                field: { label: Paragraph, name: paragraph, widget: text }
+          - { label: Sourcing heading, name: sourcing_heading, widget: string }
+          - label: Sourcing list
+            name: sourcing
+            widget: list
+            fields:
+              - { label: 'Label (e.g. Produce)', name: label, widget: string }
+              - { label: Body, name: body, widget: text }
+          - { label: Closing note (italic), name: closing_note, widget: text }
+
+      - name: menus
+        label: Menus Page (intro + closing copy)
+        file: content/pages/menus.md
+        format: frontmatter
+        fields:
+          - { label: Page heading, name: heading, widget: string }
+          - { label: Intro paragraph, name: intro, widget: text }
+          - { label: Closing heading, name: closing_heading, widget: string }
+          - { label: Closing body, name: closing_body, widget: text }
+          - { label: Closing button label, name: closing_cta_label, widget: string }
+
+      - name: events
+        label: Events Page (intro + closing copy)
+        file: content/pages/events.md
+        format: frontmatter
+        fields:
+          - { label: Page heading, name: heading, widget: string }
+          - { label: Intro paragraph, name: intro, widget: text }
+          - { label: Closing note, name: closing_note, widget: text }
+          - { label: Closing link label, name: closing_cta_label, widget: string }
+
+      - name: contact
+        label: Contact Page
+        file: content/pages/contact.md
+        format: frontmatter
+        fields:
+          - { label: Page heading, name: heading, widget: string }
+          - { label: Intro paragraph, name: intro, widget: text }
+          - { label: Submit button label, name: form_submit_label, widget: string }
+          - { label: Name field label, name: form_name_label, widget: string }
+          - { label: Email field label, name: form_email_label, widget: string }
+          - { label: Date field label, name: form_date_label, widget: string }
+          - { label: Date field placeholder, name: form_date_placeholder, widget: string }
+          - { label: Guests field label, name: form_guests_label, widget: string }
+          - { label: Guests field placeholder, name: form_guests_placeholder, widget: string }
+          - { label: Occasion field label, name: form_occasion_label, widget: string }
+          - { label: Occasion field placeholder, name: form_occasion_placeholder, widget: string }
+          - { label: Message field label, name: form_message_label, widget: string }
+          - { label: Message field placeholder, name: form_message_placeholder, widget: string }
+          - { label: 'Direct contact heading (e.g. "Or reach us directly")', name: direct_heading, widget: string }
+          - { label: Travel note (italic, bottom of page), name: travel_note, widget: text }
+
   - name: menus
     label: Seasonal Menus
     label_singular: Menu
