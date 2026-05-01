@@ -1,0 +1,56 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@theme {
+	--color-terracotta: #b85a1f;
+	--color-terracotta-soft: #c9762e;
+	--color-cream: #fdfbf6;
+	--color-ink: #3a2a1a;
+	--color-leaf: #8a9a6e;
+
+	--font-serif: 'Cormorant Garamond', 'Hoefler Text', Georgia, serif;
+	--font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+:root {
+	color-scheme: light;
+}
+
+body {
+	font-family: var(--font-sans);
+	background: var(--color-cream);
+	color: var(--color-ink);
+	font-weight: 300;
+}
+
+h1,
+h2,
+h3,
+h4 {
+	font-family: var(--font-serif);
+	color: var(--color-terracotta);
+	font-weight: 400;
+	letter-spacing: 0.01em;
+}
+
+a {
+	color: var(--color-terracotta);
+	text-underline-offset: 3px;
+	text-decoration-thickness: 1px;
+}
+
+a:hover {
+	color: var(--color-terracotta-soft);
+}
+
+.hairline {
+	background: linear-gradient(
+		to right,
+		transparent,
+		var(--color-terracotta) 20%,
+		var(--color-terracotta) 80%,
+		transparent
+	);
+	height: 1px;
+	border: 0;
+}

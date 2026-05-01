@@ -1,0 +1,66 @@
+backend:
+  name: github
+  repo: amarcin/monarch-events
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+site_url: https://monarchdining.com
+display_url: https://monarchdining.com
+logo_url: https://monarchdining.com/favicon.svg
+
+media_folder: static/uploads
+public_folder: /uploads
+
+collections:
+  - name: menus
+    label: Seasonal Menus
+    label_singular: Menu
+    folder: content/menus
+    create: true
+    slug: '{{slug}}'
+    extension: md
+    format: frontmatter
+    editor:
+      preview: true
+    fields:
+      - { label: Title, name: title, widget: string }
+      - {
+          label: Season,
+          name: season,
+          widget: select,
+          options: [Spring, Summer, Fall, Winter]
+        }
+      - { label: Number of Courses, name: courses, widget: number, value_type: int, min: 1 }
+      - { label: Price per Guest (USD), name: price_per_guest, widget: number, value_type: int }
+      - { label: Minimum Guests, name: min_guests, widget: number, value_type: int, min: 1 }
+      - { label: Maximum Guests, name: max_guests, widget: number, value_type: int, min: 1 }
+      - { label: Display Order, name: order, widget: number, value_type: int, min: 1 }
+      - {
+          label: Description & Courses (Markdown),
+          name: body,
+          widget: markdown,
+          hint: 'Short description, then bullet list of courses using "**One** — ..." format.'
+        }
+
+  - name: events
+    label: Upcoming Events
+    label_singular: Event
+    folder: content/events
+    create: true
+    slug: '{{slug}}'
+    extension: md
+    format: frontmatter
+    editor:
+      preview: true
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Date, name: date, widget: date, format: 'YYYY-MM-DD' }
+      - { label: Time, name: time, widget: string, hint: 'e.g. 7:00 PM' }
+      - { label: Location, name: location, widget: string }
+      - { label: Total Seats, name: seats, widget: number, value_type: int, min: 1 }
+      - { label: Seats Remaining, name: seats_remaining, widget: number, value_type: int, min: 0 }
+      - { label: Price per Guest (USD), name: price, widget: number, value_type: int }
+      - { label: Featured?, name: featured, widget: boolean, default: false }
+      - { label: Display Order, name: order, widget: number, value_type: int, min: 1 }
+      - { label: Description, name: body, widget: markdown }
